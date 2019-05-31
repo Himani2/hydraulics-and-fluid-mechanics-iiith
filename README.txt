@@ -1,3 +1,14 @@
+Changes for Jet force calculation are under SRIP - Codes/ app & Codes/scripts
+
+To view - go to index.html.
+You should be see form to calculate
+
+
+
+
+
+
+
 Congrats !!
 
 * You have successfully downloaded and extracted the
