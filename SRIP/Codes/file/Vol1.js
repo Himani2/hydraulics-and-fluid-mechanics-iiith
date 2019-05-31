@@ -23,6 +23,7 @@ function calculate_area_jet() {
         var diameter = Number(document.getElementById('radius').value);
         diameter = Math.abs(diameter);
         area = (1 / 4) * Math.PI * diameter * diameter;
+        return area;
         console.log(diameter);
     } catch (error) {
         throw error;
@@ -46,7 +47,9 @@ function force_jet() {
         var discharge = calculate_discharge();
         console.log(discharge);
         var area = calculate_area_jet();
+        console.log('dis:: ' + discharge);
         var velocity = discharge / area;
+        console.log('velocity:: ' + velocity);
         force = DENSITY * GRAVITY * velocity * velocity;
         console.log('force:: ', force);
         return force;
