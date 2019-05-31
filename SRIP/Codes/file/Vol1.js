@@ -7,16 +7,6 @@ function getRadius() {
     return Number(formDiameter) / 2;
 }
 
-// function volume_jet() {
-//     var volume;
-//     var radius = getRadius();
-//     volume = Math.PI * Math.pow(radius, 2) * h;
-//     volume = volume.toFixed(4);
-//     return volume_jet();
-// }
-
-
-
 function calculate_area_jet() {
     var area;
     try {
@@ -24,7 +14,6 @@ function calculate_area_jet() {
         diameter = Math.abs(diameter);
         area = (1 / 4) * Math.PI * diameter * diameter;
         return area;
-        console.log(diameter);
     } catch (error) {
         throw error;
     }
@@ -45,13 +34,9 @@ function calculate_discharge() {
 function force_jet() {
     try {
         var discharge = calculate_discharge();
-        console.log(discharge);
         var area = calculate_area_jet();
-        console.log('dis:: ' + discharge);
         var velocity = discharge / area;
-        console.log('velocity:: ' + velocity);
         force = DENSITY * GRAVITY * velocity * velocity;
-        console.log('force:: ', force);
         return force;
     } catch(error) {
         throw error;
@@ -71,18 +56,14 @@ function displayResult() {
         var forcee = forcee_jet();
         document.getElementById("force").innerHTML = force;
         document.getElementById("forcee").innerHTML = forcee;
-        console.log('res');
         alert(force + ' ' + forcee);
     } catch(error) {
-        console.log('err');
         alert(error);
     }
 }
 
 function error_jet() {
     var error = document.getElement('error').value;
-    // var error=document.getElementById('
-    // error= error.toFixed(4);
     document.getElementById("error").value = error;
 }
 
