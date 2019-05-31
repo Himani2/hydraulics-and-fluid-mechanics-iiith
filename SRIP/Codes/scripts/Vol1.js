@@ -54,17 +54,16 @@ function displayResult() {
     try {
         var force = force_jet();
         var forcee = forcee_jet();
-        document.getElementById("force").innerHTML = force;
-        document.getElementById("forcee").innerHTML = forcee;
-        alert(force + ' ' + forcee);
+        var error = error_jet(force, forcee);
+        alert('Force of JET = '+ force + ' ' + 'Partial Force of JET= ' + forcee + ' Error Percentage= ' + error);
     } catch(error) {
         alert(error);
     }
 }
 
-function error_jet() {
-    var error = document.getElement('error').value;
-    document.getElementById("error").value = error;
+// Error Percentage
+function error_jet(jet_force, partial_force) {
+    return (partial_force - jet_force)/100;
 }
 
 
