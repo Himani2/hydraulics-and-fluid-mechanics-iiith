@@ -2,11 +2,12 @@
 const DENSITY = 1 / 10; // As other units are in cm, so converting 10 mm to cm
 const GRAVITY = 914;
 
+//radius
 function getRadius() {
     var formDiameter = document.getElementById('radius').value;
     return Number(formDiameter) / 2;
 }
-
+//area of jet
 function calculate_area_jet() {
     var area;
     try {
@@ -18,7 +19,7 @@ function calculate_area_jet() {
         throw error;
     }
 }
-
+//discharge from jet
 function calculate_discharge() {
     try {
         var volume = Number(document.getElementById('volume').value);
@@ -30,7 +31,7 @@ function calculate_discharge() {
     }
 
 }
-
+//force exerted on the jet
 function force_jet() {
     try {
         var discharge = calculate_discharge();
@@ -43,7 +44,7 @@ function force_jet() {
     }
     
 }
-
+//partial force 
 function forcee_jet() {
     var mass = Number(document.getElementById('mass').value);
     var forcee = mass * GRAVITY;
@@ -67,6 +68,31 @@ function error_jet(jet_force, partial_force) {
 }
 
 
+//force exerted on the jet
+function force_jet_hemisphere() {
+    try {
+        var discharge = calculate_discharge();
+        var area = calculate_area_jet();
+        var velocity = discharge / area;
+        force = 2 *  DENSITY * discharge * velocity;
+        return force;
+    } catch(error) {
+        throw error;
+    }
+    
+}
+
+//for hemisphere result
+function displayResultForHemisphere() {
+    try {
+        var force = force_jet_hemisphere();
+        var forcee = forcee_jet();
+        var error = error_jet(force, forcee);
+        alert('Force of JET = '+ force + ' ' + 'Partial Force of JET= ' + forcee + ' Error Percentage= ' + error);
+    } catch(error) {
+        alert(error);
+    }
+}
 
 
 
